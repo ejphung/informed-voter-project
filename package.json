@@ -10,10 +10,12 @@
   "homepage": "https://github.com/ejphung/informed-voter-project#readme",
   "scripts": {
     "test": "test",
-    "start": "nodemon server",
+    "start": "nodemon server/index.js",
     "react-dev": "webpack --config webpack.config.js -w"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.0",
+    "@material-ui/icons": "^4.11.2",
     "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
