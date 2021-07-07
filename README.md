@@ -10,16 +10,10 @@ First install dependencies:
 npm install
 ```
 
-To create a production build:
-
-```sh
-npm run build-prod
-```
-
 To create a development build:
 
 ```sh
-npm run build-dev
+npm run react-dev
 ```
 
 ## Running
