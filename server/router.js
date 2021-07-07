@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/representatives', controllers.google.getRepsByAddress);
 
-router.get(`${config.openStatesURL}`, controllers.openStates.get);
+router.get('/jurisdictions', controllers.openStates.getJurisdictions);
 
 module.exports = router;
