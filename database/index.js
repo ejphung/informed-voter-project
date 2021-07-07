@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/ivp', {useNewUrlParser: true, useUnifiedTopology: true});
+const config = require('./configdb');
+
+mongoose.connect(
+  `mongodb://localhost:27017/ivp?authSource=admin`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    user: config.user,
+    pass: config.pass,
+  });
 
 const db = mongoose.connection;
 
