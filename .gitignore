@@ -6,6 +6,7 @@ node_modules/
 *.log
 package-lock.json
 configdb.js
+configapi.js
 
 # OS generated files
 .DS_Store
