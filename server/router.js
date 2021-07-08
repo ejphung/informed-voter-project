@@ -8,4 +8,6 @@ router.get('/representatives', controllers.google.getRepsByAddress);
 
 router.get('/jurisdictions', controllers.openStates.getJurisdictions);
 
+router.get('/bill/:id', controllers.openStates.getBillDetails);
+
 module.exports = router;

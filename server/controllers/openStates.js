@@ -9,6 +9,18 @@ const getJurisdictions = (req, res) => {
   });
 };
 
+const getBillDetails = (req, res) => {
+  const { id } = req.params;
+
+  models.openStates.getBillDetails(id, (err, data) => {
+    if (err) {
+      res.send(err);
+    }
+    res.status(200).send(data);
+  });
+};
+
 module.exports = {
   getJurisdictions,
+  getBillDetails,
 };
