@@ -5,9 +5,8 @@ import Avatar from '@material-ui/core/Avatar';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  max-width: 500px;
-  min-width: 400px;
+  justify-content: flex-start;
+  width: 300px;
   margin: 4px;
 `;
 
@@ -23,8 +22,7 @@ export default function RepComponent({ rep }) {
     <Container>
       <Avatar />
       <ProfileContainer>
-        <div>{rep.name}</div>
-        <div>{rep.party}</div>
+        <div><strong>{rep.name}</strong></div>
       </ProfileContainer>
     </Container>
   );

@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import RepComponent from './RepComponent';
+import FadeInSection from './FadeInSection';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export default function Representatives({ officials }) {
@@ -14,8 +16,10 @@ export default function Representatives({ officials }) {
 
   return (
     <Container>
-      {officials.map((rep) => (
-        <RepComponent rep={rep} key={rep.name} />
+      {officials.filter((rep) => rep.name.toLowerCase() !== 'vacant').map((rep) => (
+        <FadeInSection key={rep.name}>
+          <RepComponent rep={rep} />
+        </FadeInSection>
       ))}
     </Container>
   );

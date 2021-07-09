@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from './navbar/Navbar';
-import GetStarted from './GetStarted';
 import FindYourReps from './FindYourReps';
+import YourStateLegislature from './YourStateLegislature';
+import FadeInSection from './FadeInSection';
 
 const Container = styled.div`
   background: #fff;
@@ -14,9 +15,13 @@ function App() {
     <>
       <Container id="showcase">
         <Navbar />
-        <GetStarted />
       </Container>
-      <FindYourReps />
+      <FadeInSection>
+        <FindYourReps />
+      </FadeInSection>
+      <FadeInSection>
+        <YourStateLegislature />
+      </FadeInSection>
     </>
   );
 }

@@ -1,9 +1,8 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import AddressForm from './AddressForm';
-import Representatives from './Representatives';
+// import Jurisdictions from './Jurisdictions';
 
 const Container = styled.div`
   display: flex;
@@ -32,28 +31,25 @@ const Paragraph = styled.div`
   margin-bottom: 20px;
 `;
 
-export default function FindYourReps() {
+export default function YourStateLegislature() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  function getReps(query) {
+  useEffect(() => {
+    getReps();
+  }, []);
+
+  function getReps() {
     const fetchData = async () => {
       setIsError(false);
       setIsLoading(true);
-
       try {
-        const result = await axios.get('/representatives', {
-          params: {
-            address: query,
-          },
-        });
-
-        setData(result.data);
+        const result = await axios.get('/jurisdictions');
+        setData(result.data.results);
       } catch (error) {
         setIsError(true);
       }
-
       setIsLoading(false);
     };
 
@@ -63,13 +59,16 @@ export default function FindYourReps() {
   return (
     <Container id="find-your-reps">
       <TextContainer>
-        <Header>MEET YOUR REPS</Header>
+        <Header>Get Legislative Info About Your State</Header>
         <Paragraph>
-          Get to know your representatives, how to contact them, bills they’ve introduced, committees they serve on, and political contributions they’ve received. Enter your full address below to get started.
+          Click on your state to view legislative information for the House and Senate of the United States Congress.
         </Paragraph>
-        <AddressForm getReps={getReps} />
       </TextContainer>
-      {data.length > 0 ? <Representatives officials={data.officials} /> : null}
+      {data.length > 0
+        ? (
+          data.map((state) => <div key={state.name}>{state.name}</div>)
+        )
+        : null}
     </Container>
   );
 }
