@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from './navbar/Navbar';
+import GetStarted from './GetStarted';
 import FindYourReps from './FindYourReps';
+import WhatNext from './WhatNext';
 import YourStateLegislature from './YourStateLegislature';
 import FadeInSection from './FadeInSection';
 
@@ -15,13 +17,17 @@ function App() {
     <>
       <Container id="showcase">
         <Navbar />
+        <GetStarted />
       </Container>
       <FadeInSection>
         <FindYourReps />
       </FadeInSection>
       <FadeInSection>
-        <YourStateLegislature />
+        <WhatNext />
       </FadeInSection>
+      {/* <FadeInSection>
+        <YourStateLegislature />
+      </FadeInSection> */}
     </>
   );
 }

@@ -9,6 +9,7 @@ const NavContainer = styled.div`
   flex-wrap: wrap;
   position: sticky;
   top: 0;
+  background: ${(bgColor) => bgColor};
   z-index: 10;
 `;
 
@@ -29,7 +30,7 @@ const Hamburger = styled.div`
   span {
     height: 2px;
     width: 25px;
-    background: #000;
+    background: #fff;
     margin-bottom: 4px;
     border-radius: 5px;
   }
@@ -55,33 +56,47 @@ const Menu = styled.div`
 `;
 
 const MenuLink = styled.a`
-  padding: 1rem;
+  padding: 10px 15px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   color: #fff;
   transition: all 0.3s ease-in;
   font-size: 1.1rem;
+  border: 2px solid #fff;
+  border-radius: 30px;
 
   &:hover {
-    color: #000;
+    color: grey;
+    background: #fff;
   }
 `;
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeBackground);
 
   return (
-    <NavContainer>
-      <Logo href="">INFORMED VOTER PROJECT</Logo>
+    <NavContainer bgColor={navbar ? '#fff' : 'transparent'}>
+      <Logo href="">MEET YOUR REPS</Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Hamburger>
-      <Menu isOpen={isOpen}>
+      {/* <Menu isOpen={isOpen}>
         <MenuLink href="">SIGN UP</MenuLink>
-      </Menu>
+      </Menu> */}
     </NavContainer>
   );
 }

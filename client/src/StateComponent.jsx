@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Avatar from '@material-ui/core/Avatar';
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 300px;
-  margin: 4px;
+  width: 200px;
+  height: 50px;
+  margin: 1px;
 `;
 
 const ProfileContainer = styled.div`
@@ -17,13 +17,11 @@ const ProfileContainer = styled.div`
   margin: 4px;
 `;
 
-export default function RepComponent({ rep }) {
+export default function RepComponent({ state }) {
   return (
     <Container>
-      <Avatar />
       <ProfileContainer>
-        <div><strong>{rep.name}</strong></div>
-        <div><i>{rep.party}</i></div>
+        <div><strong>{state.name}</strong></div>
       </ProfileContainer>
     </Container>
   );

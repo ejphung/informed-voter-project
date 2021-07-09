@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import RepComponent from './RepComponent';
+import StateComponent from './StateComponent';
 import FadeInSection from './FadeInSection';
 
 const Container = styled.div`
@@ -11,13 +11,13 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function Representatives({ officials }) {
-  console.log(officials);
+export default function Representatives({ jurisdictions }) {
+  console.log(jurisdictions);
 
   return (
     <Container>
-      {officials.filter((rep) => rep.name.toLowerCase() !== 'vacant').map((rep) => (
-        <RepComponent key={rep.name} rep={rep} />
+      {jurisdictions.map((state) => (
+        <StateComponent key={state.name} state={state} />
       ))}
     </Container>
   );

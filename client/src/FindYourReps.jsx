@@ -33,7 +33,7 @@ const Paragraph = styled.div`
 `;
 
 export default function FindYourReps() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -50,6 +50,7 @@ export default function FindYourReps() {
         });
 
         setData(result.data);
+        console.log(result.data);
       } catch (error) {
         setIsError(true);
       }
@@ -61,15 +62,15 @@ export default function FindYourReps() {
   }
 
   return (
-    <Container>
+    <Container id="find-my-reps">
       <TextContainer>
         <Header>Find Your Reps</Header>
         <Paragraph>
-          Get to know your representatives, how to contact them, bills they’ve introduced, committees they serve on, and political contributions they’ve received. Enter your full address below to get started.
+        Based on your address, we can find all the federal, state, county and local officials who represent you in government. Enter your full address below to get started.
         </Paragraph>
         <AddressForm getReps={getReps} />
       </TextContainer>
-      {data.length > 0 ? <Representatives officials={data.officials} /> : null}
+      {data ? <Representatives officials={data.officials} /> : null}
     </Container>
   );
 }

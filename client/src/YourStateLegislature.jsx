@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-// import Jurisdictions from './Jurisdictions';
+import Jurisdictions from './Jurisdictions';
 
 const Container = styled.div`
   display: flex;
@@ -64,11 +64,7 @@ export default function YourStateLegislature() {
           Click on your state to view legislative information for the House and Senate of the United States Congress.
         </Paragraph>
       </TextContainer>
-      {data.length > 0
-        ? (
-          data.map((state) => <div key={state.name}>{state.name}</div>)
-        )
-        : null}
+      {data.length > 0 ? <Jurisdictions jurisdictions={data} /> : null}
     </Container>
   );
 }
