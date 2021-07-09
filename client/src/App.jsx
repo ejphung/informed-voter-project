@@ -23,11 +23,11 @@ function App() {
         <FindYourReps />
       </FadeInSection>
       <FadeInSection>
+        <YourStateLegislature />
+      </FadeInSection>
+      <FadeInSection>
         <WhatNext />
       </FadeInSection>
-      {/* <FadeInSection>
-        <YourStateLegislature />
-      </FadeInSection> */}
     </>
   );
 }
