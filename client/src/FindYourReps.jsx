@@ -61,9 +61,9 @@ export default function FindYourReps() {
   }
 
   return (
-    <Container id="find-your-reps">
+    <Container>
       <TextContainer>
-        <Header>MEET YOUR REPS</Header>
+        <Header>Find Your Reps</Header>
         <Paragraph>
           Get to know your representatives, how to contact them, bills they’ve introduced, committees they serve on, and political contributions they’ve received. Enter your full address below to get started.
         </Paragraph>
