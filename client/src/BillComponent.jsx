@@ -6,7 +6,6 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   width: 200px;
-  height: 50px;
   margin: 1px;
 `;
 
@@ -17,11 +16,14 @@ const ProfileContainer = styled.div`
   margin: 4px;
 `;
 
-export default function RepComponent({ state }) {
+export default function BillComponent({ bill }) {
   return (
     <Container>
       <ProfileContainer>
-        <div><strong>{state.name}</strong></div>
+        <div><strong>{bill.identifier}</strong></div>
+        <div>{bill.latest_action_date}</div>
+        <div>{bill.title}</div>
+        <a href={bill.openstates_url}>Learn More</a>
       </ProfileContainer>
     </Container>
   );

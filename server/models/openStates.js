@@ -18,6 +18,22 @@ const getJurisdictions = (cb) => {
     });
 };
 
+const getBillsByState = (id, cb) => {
+  axios.get(`${config.openStatesURL}/bills`, {
+    params: {
+      apikey: config.openStatesAPI,
+      jurisdiction: id,
+    },
+  })
+    .then((response) => {
+      const { data } = response;
+      cb(null, data);
+    })
+    .catch((err) => {
+      cb(err);
+    });
+};
+
 const getBillDetails = (id, cb) => {
   axios.get(`${config.openStatesURL}/bills/ocd-bill/${id}`, {
     params: {
@@ -37,5 +53,6 @@ const getBillDetails = (id, cb) => {
 
 module.exports = {
   getJurisdictions,
+  getBillsByState,
   getBillDetails,
 };
