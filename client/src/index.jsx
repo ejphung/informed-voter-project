@@ -4,4 +4,4 @@ import App from './App';
 
 const mountNode = document.getElementById('app');
 
-ReactDOM.render(<App name="Elizabeth" />, mountNode);
+ReactDOM.render(<App />, mountNode);

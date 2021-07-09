@@ -1,13 +1,13 @@
 const models = require('../models');
 
 const getRepsByAddress = (req, res) => {
-  const { address } = req.body;
+  const { address } = req.query;
 
   models.google.getRepsByAddress(address, (err, data) => {
     if (err) {
       res.send(err);
     }
-    res.status(200).send(data);
+    res.send(data);
   });
 };
 

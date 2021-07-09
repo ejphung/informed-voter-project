@@ -1,20 +1,22 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
+import styled from 'styled-components';
+import Navbar from './navbar/Navbar';
+import GetStarted from './GetStarted';
+import FindYourReps from './FindYourReps';
 
-function App({ name }) {
+const Container = styled.div`
+  background: #fff;
+  height: 100vh;
+`;
+
+function App() {
   return (
     <>
-      <h1>
-        Hello {name}
-      </h1>
-      <Button
-        endIcon={<SaveIcon />}
-        size="large"
-        variant="contained"
-        color="primary">
-        this is a material UI button
-      </Button>
+      <Container id="showcase">
+        <Navbar />
+        <GetStarted />
+      </Container>
+      <FindYourReps />
     </>
   );
 }
