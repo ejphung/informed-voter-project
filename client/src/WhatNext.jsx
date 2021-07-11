@@ -34,7 +34,12 @@ export default function WhatNext() {
       <Header>Step 2</Header>
       <div>Make Contact with Your Reps</div>
       <ContentContainer>Even if you reach out and say "Hey, I recently learned about your role and am interested in what you do", it could go a long way to put your reps on notice that their community is paying attention and cares about the decisions they make.</ContentContainer>
-      <ContactYourRep />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      {/* <ContactYourRep /> */}
     </Container>
   );
 }
