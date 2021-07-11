@@ -1,24 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import RepComponent from './RepComponent';
 import FadeInSection from './FadeInSection';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-`;
 
 export default function Representatives({ officials }) {
   console.log(officials);
 
   return (
     <Container>
-      {officials.filter((rep) => rep.name.toLowerCase() !== 'vacant').map((rep) => (
-        <RepComponent key={rep.name} rep={rep} />
-      ))}
+      <Grid container spacing={3}>
+        {officials.filter((rep) => rep.name.toLowerCase() !== 'vacant').map((rep) => (
+          <Grid item key={rep.name} xs={12} md={6} lg={4}>
+            <RepComponent rep={rep} />
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 }

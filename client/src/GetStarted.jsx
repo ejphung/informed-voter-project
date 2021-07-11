@@ -31,15 +31,16 @@ const GetStartedLink = styled.a`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #fff;
+  color: grey;
   transition: all 0.3s ease-in;
   font-size: 1.1rem;
   border: 2px solid #fff;
   border-radius: 30px;
+  background: #fff;
 
   &:hover {
-    color: grey;
-    background: #fff;
+    color: #fff;
+    background: transparent;
   }
 `;
 
