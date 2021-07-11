@@ -12,7 +12,7 @@ export default function Representatives({ officials }) {
     <Container>
       <Grid container spacing={3}>
         {officials.filter((rep) => rep.name.toLowerCase() !== 'vacant').map((rep) => (
-          <Grid item key={rep.name} xs={12} md={6} lg={4}>
+          <Grid item key={rep.name} xs={6}>
             <RepComponent rep={rep} />
           </Grid>
         ))}

@@ -31,10 +31,11 @@ export default function RepComponent({ rep }) {
 
   return (
     <Card elevation={3} className={classes.root}>
+      <div style={{display:"flex", justifyContent: "center"}}>
       <AvatarContainer>
         <Avatar />
       </AvatarContainer>
-      <CardHeader
+      <CardHeader style={{display:"flex", justifyContent:"center"}}
         action={(
           <IconButton onClick={() => console.log('call', rep.phones)}>
             <CallIcon />
@@ -51,6 +52,7 @@ export default function RepComponent({ rep }) {
           {rep.phones}
         </Typography>
       </CardContent>
+      </div>
     </Card>
   );
 }
