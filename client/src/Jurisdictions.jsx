@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import USAMap from 'react-usa-map';
 import BillComponent from './BillComponent';
+import LoadingSpinner from './LoadingSpinner';
 
 class Map extends Component {
   constructor(props) {
@@ -81,6 +82,7 @@ export default function Representatives({ jurisdictions }) {
             ))
           )
           : null}
+        {isLoading ? <LoadingSpinner /> : null}
       </Grid>
     </Container>
   );
