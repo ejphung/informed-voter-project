@@ -1,16 +1,10 @@
 import React, { Component, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import USAMap from 'react-usa-map';
 import BillComponent from './BillComponent';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-`;
 
 class Map extends Component {
   constructor(props) {
@@ -77,13 +71,17 @@ export default function Representatives({ jurisdictions }) {
   return (
     <Container>
       <Map updateState={updateState} />
-      {data
-        ? (
-          data.results.map((bill) => (
-            <BillComponent key={bill.identifier} bill={bill} />
-          ))
-        )
-        : null}
+      <Grid container spacing={2}>
+        {data
+          ? (
+            data.results.map((bill) => (
+              <Grid item key={bill.identifier} xs={12} md={6} lg={4}>
+                <BillComponent bill={bill} />
+              </Grid>
+            ))
+          )
+          : null}
+      </Grid>
     </Container>
   );
 }
