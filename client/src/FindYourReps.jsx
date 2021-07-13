@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import AddressForm from './AddressForm';
 import Representatives from './Representatives';
+import FadeInSection from './FadeInSection';
 
 const Strip = styled.div`
   width: 100vw;
@@ -68,16 +69,18 @@ export default function FindYourReps() {
 
   return (
     <Strip>
-      <Container id="find-my-reps">
-        <TextContainer>
-          <Header>Find Your Reps</Header>
-          <Paragraph>
-          Based on your address, we can find all the federal, state, county and local officials who represent you in government. Enter your full address below to get started.
-          </Paragraph>
-          <AddressForm getReps={getReps} />
-        </TextContainer>
-        {data ? <Representatives officials={data.officials} /> : null}
-      </Container>
+      <FadeInSection>
+        <Container id="find-my-reps">
+          <TextContainer>
+            <Header>Find Your Reps</Header>
+            <Paragraph>
+            Based on your address, we can find all the federal, state, county and local officials who represent you in government. Enter your full address below to get started.
+            </Paragraph>
+            <AddressForm getReps={getReps} />
+          </TextContainer>
+          {data ? <Representatives officials={data.officials} /> : null}
+        </Container>
+      </FadeInSection>
     </Strip>
   );
 }

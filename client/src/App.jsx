@@ -19,9 +19,7 @@ function App() {
         <Navbar />
         <GetStarted />
       </Container>
-      <FadeInSection>
-        <FindYourReps />
-      </FadeInSection>
+      <FindYourReps />
       <FadeInSection>
         <YourStateLegislature />
       </FadeInSection>
