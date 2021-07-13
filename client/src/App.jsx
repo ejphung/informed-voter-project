@@ -25,9 +25,7 @@ function App() {
       <FadeInSection>
         <YourStateLegislature />
       </FadeInSection>
-      <FadeInSection>
-        <WhatNext />
-      </FadeInSection>
+      <WhatNext />
     </>
   );
 }

@@ -15,7 +15,6 @@ const AvatarContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -30,28 +29,30 @@ export default function RepComponent({ rep }) {
   const classes = useStyles();
 
   return (
-    <Card elevation={3} className={classes.root}>
-      <div style={{display:"flex", justifyContent: "center"}}>
-      <AvatarContainer>
-        <Avatar />
-      </AvatarContainer>
-      <CardHeader style={{display:"flex", justifyContent:"center"}}
-        action={(
+    <Card elevation={3} className={classes.root} style={{ backgroundColor: '#e3f2fd', color: '#0d47a1' }}>
+      <div style={{
+        display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px',
+      }}
+      >
+        <AvatarContainer>
+          <Avatar />
+        </AvatarContainer>
+        <CardHeader
+          style={{ display: 'flex', justifyContent: 'flex start' }}
+          title={rep.name}
+          subheader={rep.party}
+        >
+          <div>{rep.name}</div>
+        </CardHeader>
+        <div style={{
+          display: 'flex', flexDirection: 'column', justifyContent: 'flex start', alignItems: 'center',
+        }}
+        >
+          <Button size="large" color="primary" href={rep.urls} target="_blank" rel="noreferrer">Website</Button>
           <IconButton onClick={() => console.log('call', rep.phones)}>
             <CallIcon />
           </IconButton>
-        )}
-        title={rep.name}
-        subheader={rep.party}
-      >
-        <div>{rep.name}</div>
-      </CardHeader>
-      <Button size="large" color="primary" href={rep.urls} target="_blank" rel="noreferrer">Website</Button>
-      <CardContent>
-        <Typography variant="body1" color="textSecondary">
-          {rep.phones}
-        </Typography>
-      </CardContent>
+        </div>
       </div>
     </Card>
   );
