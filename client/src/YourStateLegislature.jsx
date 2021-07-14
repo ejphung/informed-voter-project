@@ -24,11 +24,13 @@ const TextContainer = styled.div`
 const Header = styled.div`
   font-size: 40px;
   margin-bottom: 10px;
+  color: white;
 `;
 
 const Paragraph = styled.div`
   font-size: 18px;
   margin-bottom: 20px;
+  color: white;
 `;
 
 export default function YourStateLegislature() {
@@ -57,11 +59,11 @@ export default function YourStateLegislature() {
   }
 
   return (
-    <Container id="find-your-reps">
+    <Container>
       <TextContainer>
-        <Header>Get Legislative Info About Your State</Header>
+        <Header>Get Bill Info From Your State Legislature</Header>
         <Paragraph>
-          Click on your state to view legislative information for the House and Senate of the United States Congress.
+          Click on your state to view legislation by the specified criteria below.
         </Paragraph>
       </TextContainer>
       {data.length > 0 ? <Jurisdictions jurisdictions={data} /> : null}

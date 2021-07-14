@@ -15,7 +15,7 @@ const NavContainer = styled.div`
 
 const Logo = styled.a`
   padding: 1rem 0;
-  color: #000;
+  color: #fff;
   text-decoration: none;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-weight: 800;

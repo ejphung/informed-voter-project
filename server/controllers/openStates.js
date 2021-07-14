@@ -11,9 +11,10 @@ const getJurisdictions = (req, res) => {
 
 const getBillsByState = (req, res) => {
   const { jurisdiction } = req.query;
+  const { sort } = req.query;
   console.log(req.query);
 
-  models.openStates.getBillsByState(jurisdiction, (err, data) => {
+  models.openStates.getBillsByState(jurisdiction, sort, (err, data) => {
     if (err) {
       res.send(err);
     }

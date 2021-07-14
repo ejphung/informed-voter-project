@@ -7,7 +7,14 @@ import WhatNext from './WhatNext';
 import YourStateLegislature from './YourStateLegislature';
 import FadeInSection from './FadeInSection';
 
-const Container = styled.div`
+const RepContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BannerContainer = styled.div`
   background: #fff;
   height: 100vh;
 `;
@@ -15,15 +22,17 @@ const Container = styled.div`
 function App() {
   return (
     <>
-      <Container id="showcase">
+      <BannerContainer id="showcase">
         <Navbar />
-        <GetStarted />
-      </Container>
-      <FindYourReps />
+        {/* <GetStarted /> */}
+      </BannerContainer>
+      <RepContainer>
+        <FindYourReps />
+      </RepContainer>
       <FadeInSection>
         <YourStateLegislature />
       </FadeInSection>
-      <WhatNext />
+      {/* <WhatNext /> */}
     </>
   );
 }

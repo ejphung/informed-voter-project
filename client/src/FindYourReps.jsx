@@ -6,21 +6,15 @@ import AddressForm from './AddressForm';
 import Representatives from './Representatives';
 import FadeInSection from './FadeInSection';
 
-const Strip = styled.div`
-  width: 100vw;
-  background: #F5F5F7;
-  padding: 20px 0;
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
   margin-top: 50px;
-  margin-left: 20px;
   justify-content: center;
   align-items: center;
+  color: white;
 `;
 
 const TextContainer = styled.div`
@@ -68,19 +62,19 @@ export default function FindYourReps() {
   }
 
   return (
-    <Strip>
+    <>
+      <AddressForm getReps={getReps} id="find-my-reps" />
       <FadeInSection>
-        <Container id="find-my-reps">
+        <Container>
           <TextContainer>
             <Header>Find Your Reps</Header>
             <Paragraph>
-            Based on your address, we can find all the federal, state, county and local officials who represent you in government. Enter your full address below to get started.
+            Based on your address, we can find all the federal, state, county and local officials who represent you in government. Enter your full address above to get started.
             </Paragraph>
-            <AddressForm getReps={getReps} />
           </TextContainer>
           {data ? <Representatives officials={data.officials} /> : null}
         </Container>
       </FadeInSection>
-    </Strip>
+    </>
   );
 }

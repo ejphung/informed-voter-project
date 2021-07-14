@@ -8,11 +8,11 @@ const Container = styled.div`
   margin-top: 20px;
   text-align: center;
   margin-top: 100px;
-  margin-left: 20px;
+  margin-left: 100px;
 `;
 
 const TextContainer = styled.div`
-  width: 50vw;
+  width: 300px;
   margin-bottom: 20px;
 `;
 

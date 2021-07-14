@@ -18,11 +18,13 @@ const getJurisdictions = (cb) => {
     });
 };
 
-const getBillsByState = (id, cb) => {
+const getBillsByState = (id, sortSelection, cb) => {
   axios.get(`${config.openStatesURL}/bills`, {
     params: {
       apikey: config.openStatesAPI,
       jurisdiction: id,
+      sort: sortSelection,
+      include: ['sponsorships', 'abstracts', 'actions', 'sources', 'documents', 'versions', 'votes'],
     },
   })
     .then((response) => {

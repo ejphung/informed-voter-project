@@ -24,16 +24,27 @@ export default function BillComponent({ bill }) {
     <Card elevation={1} className={classes.root}>
       <CardHeader
         title={bill.identifier}
-        subheader={bill.title}>
-      </CardHeader>
+        subheader={bill.title}
+      />
       <CardContent>
         <Typography variant="body2" color="textSecondary">
-          <strong>Latest Action Date:</strong><br />
-          {bill.latest_action_date}<br />
-          <strong>Latest Action Description:</strong><br />
-          {bill.latest_action_description}
+          <div style={{
+            display: 'flex', flexDirection: 'column', justifyContent: 'flex start', alignItems: 'left',
+          }}
+          >
+            <div>
+              <strong>Latest Action Date: </strong>
+              {bill.latest_action_date}
+              <br />
+            </div>
+            <div>
+              <strong>Latest Action Description: </strong>
+              {bill.latest_action_description}
+            </div>
+          </div>
         </Typography>
       </CardContent>
+      <Button size="large" color="primary" href="/" target="_blank" rel="noreferrer">Follow This Bill</Button>
       <Button size="large" color="primary" href={bill.openstates_url} target="_blank" rel="noreferrer">Learn More</Button>
     </Card>
   );
