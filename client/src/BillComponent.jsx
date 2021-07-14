@@ -9,6 +9,13 @@ import Typography from '@material-ui/core/Typography';
 import { IconButton } from '@material-ui/core';
 import CallIcon from '@material-ui/icons/Call';
 
+const Subject = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -33,6 +40,11 @@ export default function BillComponent({ bill }) {
           }}
           >
             <div>
+              <strong>Introduced in {bill.from_organization.name}</strong>
+              <br />
+            </div>
+            <br /><br />
+            <div>
               <strong>Latest Action Date: </strong>
               {bill.latest_action_date}
               <br />
@@ -40,6 +52,10 @@ export default function BillComponent({ bill }) {
             <div>
               <strong>Latest Action Description: </strong>
               {bill.latest_action_description}
+            </div>
+            <div>
+              <strong>Subject(s)</strong>
+              {bill.subject.map((subject) => <Subject key={subject}>{subject}</Subject>)}
             </div>
           </div>
         </Typography>
