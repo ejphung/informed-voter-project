@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,14 +22,31 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    transition: 'transform 0.15s ease-in-out',
+  },
+  cardHovered: {
+    transform: 'scale3d(1.05, 1.05, 1)',
   },
 }));
 
 export default function RepComponent({ rep }) {
   const classes = useStyles();
+  const [state, setState] = useState({
+    raised: false,
+    shadow: 1,
+  });
 
   return (
-    <Card elevation={3} className={classes.root} style={{ backgroundColor: '#e3f2fd', color: '#0d47a1' }}>
+    <Card
+      elevation={3}
+      classes={{ root: state.raised ? classes.cardHovered : '' }}
+      onMouseOver={() => setState({ raised: true, shadow: 3 })}
+      onMouseOut={() => setState({ raised: false, shadow: 1 })}
+      raised={state.raised}
+      zdepth={state.shadow}
+      className={classes.root}
+      style={{ backgroundColor: '#406682', color: '#fff' }}
+    >
       <div style={{
         display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px',
       }}
@@ -38,7 +55,7 @@ export default function RepComponent({ rep }) {
           <Avatar />
         </AvatarContainer>
         <CardHeader
-          style={{ display: 'flex', justifyContent: 'flex start' }}
+          style={{ display: 'flex', justifyContent: 'flex start', color: 'white' }}
           title={rep.name}
           subheader={rep.party}
         >
@@ -50,7 +67,7 @@ export default function RepComponent({ rep }) {
         >
           <Button size="large" color="primary" href={rep.urls} target="_blank" rel="noreferrer">Website</Button>
           <IconButton onClick={() => console.log('call', rep.phones)}>
-            <CallIcon />
+            <CallIcon style={{ color: 'white' }} />
           </IconButton>
         </div>
       </div>
